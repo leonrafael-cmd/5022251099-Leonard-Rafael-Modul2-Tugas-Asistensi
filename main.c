@@ -40,7 +40,7 @@ int main(void) {
     read_matrix(A);
 
     printf("\n--- Input Matriks B ---\n");
-    read_matrix(B); // Wajib diberi titik
+    read_matrix(B); // Wajib diberi titik koma
 
     multiply(A, B, C);
 
