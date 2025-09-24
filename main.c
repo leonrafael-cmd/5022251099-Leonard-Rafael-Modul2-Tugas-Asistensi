@@ -1,23 +1,20 @@
-// Benarkan Code ini
+#include <stdio.h> // Ditambahkan supaya program bisa berjalan karena program mengandung printf dan scanf
 
-#include <stdio.h>
+#define N 3 
 
-#define N 3  // ini untuk deklarasi size matrix berapa (biar tetap seimbang saat perkalian matrix)
-
-void read_matrix(double M[N][N]) {
+void read_matrix(int M[N][N]) { // x dan y diganti N
     printf("Masukkan elemen matriks (%dx%d):\n", N, N);
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            scanf("%lf", &M[i][j]);
+        for (int j = 0; j < N; j++) { // Variabel k diganti menjadi j supaya sesuai dengan sampingnya
+            scanf("%d", &M[i][j]);   // %lf diganti menjadi %d untuk membaca integer
         }
     }
 }
 
-void multiply(double A[N][N], double B[N][N], double C[N][N]) {
+void multiply(int A[N][N], int B[N][N], int C[N][N]) {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-
-            double sum = 0.0; 
+            int sum = 0; // Diberi int sesuai dengan tipe data yang digunakan
             for (int k = 0; k < N; k++) {
                 sum += A[i][k] * B[k][j];
             }
@@ -26,24 +23,24 @@ void multiply(double A[N][N], double B[N][N], double C[N][N]) {
     }
 }
 
-void print_matrix(double M[N][N]) {
+void print_matrix(int M[N][N]) {
     printf("Hasil matriks:\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            printf("%.2lf ", M[i][j]);
+            printf("%d ", M[i][j]); // %c diganti dengan %d untuk membaca integer
         }
         printf("\n");
     }
 }
 
 int main(void) {
-    double A[N][N], B[N][N], C[N][N];
+    int A[N][N], B[N][N], C[N][N];
 
     printf("--- Input Matriks A ---\n");
     read_matrix(A);
 
     printf("\n--- Input Matriks B ---\n");
-    read_matrix(B); 
+    read_matrix(B); // Wajib diberi titik
 
     multiply(A, B, C);
 
